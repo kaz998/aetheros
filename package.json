@@ -1,0 +1,19 @@
+{
+  "name": "aetheros",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A browser-native operating environment for turning complex work into a living, inspectable system.",
+  "scripts": {
+    "start": "python3 -m http.server 4173",
+    "verify": "python3 scripts/verify.py"
+  },
+  "keywords": [
+    "portfolio",
+    "desktop",
+    "local-first",
+    "workflow",
+    "visualization",
+    "systems-design"
+  ],
+  "license": "MIT"
+}

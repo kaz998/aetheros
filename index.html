@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a1020" />
+    <meta name="description" content="AetherOS is a browser-native operating environment for visual workflows." />
+    <title>AetherOS — Browser-native workflow operating environment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="boot-screen" id="boot-screen" aria-live="polite">
+      <div class="boot-mark">A</div>
+      <div class="boot-copy"><strong>AetherOS</strong><span id="boot-status">Starting browser-native kernel…</span></div>
+      <div class="boot-progress"><i></i></div>
+    </div>
+
+    <main class="desktop" id="desktop" aria-label="AetherOS desktop">
+      <div class="ambient ambient-one"></div>
+      <div class="ambient ambient-two"></div>
+      <div class="noise"></div>
+
+      <header class="topbar">
+        <button class="brand" id="launcher-button" aria-label="Open application launcher">
+          <span class="brand-mark">A</span>
+          <span>AetherOS</span>
+          <small>v0.1.0</small>
+        </button>
+        <div class="workspace-switcher" role="group" aria-label="Workspaces">
+          <button class="workspace active" data-workspace="focus" title="Focus workspace">01 <span>Focus</span></button>
+          <button class="workspace" data-workspace="build" title="Build workspace">02 <span>Build</span></button>
+          <button class="workspace" data-workspace="observe" title="Observe workspace">03 <span>Observe</span></button>
+        </div>
+        <div class="system-actions">
+          <button id="search-button" class="icon-button search-trigger" aria-label="Open command palette"><span class="icon">⌘</span><kbd>K</kbd></button>
+          <button id="notification-button" class="icon-button" aria-label="Open notifications"><span class="icon">◌</span><i class="notification-dot"></i></button>
+          <button id="theme-button" class="icon-button" aria-label="Toggle theme"><span class="icon">◐</span></button>
+          <div class="clock"><strong id="clock-time">09:41</strong><span id="clock-date">Tue, Jun 10</span></div>
+          <button class="avatar" id="profile-button" aria-label="Open profile">AR</button>
+        </div>
+      </header>
+
+      <section class="desktop-icons" aria-label="Desktop applications">
+        <button class="desktop-app" data-open-app="files"><span class="app-icon files-icon">▰</span><span>Files</span></button>
+        <button class="desktop-app" data-open-app="workflow"><span class="app-icon workflow-icon">⌘</span><span>Flow Studio</span></button>
+        <button class="desktop-app" data-open-app="observatory"><span class="app-icon observatory-icon">◔</span><span>Observatory</span></button>
+        <button class="desktop-app" data-open-app="notes"><span class="app-icon notes-icon">✦</span><span>Notes</span></button>
+      </section>
+
+      <div id="window-layer" class="window-layer" aria-live="polite"></div>
+
+      <footer class="dock" aria-label="Application dock">
+        <button class="dock-app active" data-open-app="mission" aria-label="Mission Control" title="Mission Control"><span class="dock-glyph mission-glyph">✦</span><i></i></button>
+        <button class="dock-app" data-open-app="files" aria-label="Files" title="Files"><span class="dock-glyph files-glyph">▰</span><i></i></button>
+        <button class="dock-app" data-open-app="workflow" aria-label="Flow Studio" title="Flow Studio"><span class="dock-glyph flow-glyph">⌘</span><i></i></button>
+        <button class="dock-app" data-open-app="observatory" aria-label="Observatory" title="Observatory"><span class="dock-glyph observatory-glyph">◔</span><i></i></button>
+        <button class="dock-app" data-open-app="terminal" aria-label="Terminal" title="Terminal"><span class="dock-glyph terminal-glyph">›_</span><i></i></button>
+        <button class="dock-app" data-open-app="notes" aria-label="Notes" title="Notes"><span class="dock-glyph notes-glyph">✦</span><i></i></button>
+        <span class="dock-divider"></span>
+        <button class="dock-app" id="dock-launcher" aria-label="Application launcher" title="Application launcher"><span class="dock-glyph launcher-glyph">▦</span></button>
+      </footer>
+
+      <aside class="command-palette hidden" id="command-palette" role="dialog" aria-modal="true" aria-label="Command palette">
+        <div class="palette-search"><span>⌕</span><input id="command-input" autocomplete="off" placeholder="Search apps, actions, and files…" /><kbd>ESC</kbd></div>
+        <div class="palette-content" id="palette-content"></div>
+        <footer><span><kbd>↑↓</kbd> navigate</span><span><kbd>↵</kbd> select</span><span><kbd>⌘K</kbd> toggle</span></footer>
+      </aside>
+
+      <aside class="notification-panel hidden" id="notification-panel" aria-label="Notifications">
+        <header><div><small>INBOX</small><h3>Signals</h3></div><button id="clear-notifications">Clear all</button></header>
+        <div id="notification-list" class="notification-list"></div>
+      </aside>
+
+      <aside class="launcher-panel hidden" id="launcher-panel" aria-label="Application launcher">
+        <div class="launcher-heading"><small>APPLICATIONS</small><button data-close-panel="launcher-panel" aria-label="Close launcher">×</button></div>
+        <div class="launcher-grid" id="launcher-grid"></div>
+        <div class="launcher-footer"><span><i class="live-dot"></i> kernel nominal</span><button id="open-settings">Configure system →</button></div>
+      </aside>
+
+      <div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
