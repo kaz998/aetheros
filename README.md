@@ -2,6 +2,14 @@
 
 > A browser-native, local-first operating environment for navigating complex work as a living system.
 
+<p align="center">
+  <img src="assets/aetheros-desktop.png" alt="AetherOS desktop with Mission Control, Constellation, and Terminal" width="100%">
+</p>
+<p align="center">
+  <img src="assets/aetheros-flow-studio.png" alt="AetherOS Flow Studio" width="49%">
+  <img src="assets/aetheros-command-palette.png" alt="AetherOS command palette" width="49%">
+</p>
+
 AetherOS is not a Linux clone or fake kernel. It is a recruiter-facing interaction-systems prototype: a desktop shell where plans, decisions, files, workflows, telemetry, notes, and a safe command surface all read from one persisted workspace model.
 
 ## Why it stands out
